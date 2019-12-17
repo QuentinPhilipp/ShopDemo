@@ -1,0 +1,16 @@
+<div class="cart-container">
+  <div class="row justify-content-center">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 center-cart-display text-center">
+      <div class="px-4 py-4">
+
+        <app-item-cart  *ngFor="let product of cartList; let i = index"
+                       [Name]="product.item.name"
+                       [Price]="product.item.price"
+                       [Quantity]="product.quantity"
+                       [Id]="product.item.id"
+                       [TotalPrice]="product.totalPrice"></app-item-cart>
+
+      </div>
+    </div>
+  </div>
+</div>

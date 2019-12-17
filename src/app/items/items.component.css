@@ -1,0 +1,24 @@
+.article {
+  background-color: rgb(205, 205, 205);
+  border-radius: 20px;
+  min-height: 110px;
+  max-width: 200px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.article-photo {
+  max-width:50%;
+  width: 200px;
+  height: 200px;
+  margin-left: 50%;
+  margin-left: auto;
+margin-right: auto;
+display: block;
+}
+
+
+.article-row {
+
+}

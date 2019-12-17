@@ -1,0 +1,28 @@
+<div class="row article-row px-4 py-4">
+  <div *ngFor="let item of items"
+        class="col-lg-3 col-md-4 mb-4">
+
+        <div class="card h-100">
+          <a href="/produit"><img class="card-img-top article-photo" src={{item.photo}} alt=""></a>
+          <div class="card-body">
+            <h4 class="card-title text-center">
+              <a href="/produit">{{item.name}}</a>
+            </h4>
+            <h5>{{item.price}}$</h5>
+            <p class="card-text">{{item.desc}}</p>
+          </div>
+
+          <button (click)="onClickMe(item)">Add to the cart !</button>
+        </div>
+  </div>
+</div>
+
+<div *ngIf="selectedItem">
+  <h2>{{selectedItem.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{selectedItem.id}}</div>
+  <div>
+    <label>name:
+      <input [(ngModel)]="selectedItem.name" placeholder="name"/>
+    </label>
+  </div>
+</div>
