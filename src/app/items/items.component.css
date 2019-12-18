@@ -19,6 +19,23 @@ display: block;
 }
 
 
-.article-row {
+.card-body {
+  background:rgb(244, 244, 244);
+}
 
+
+.add-to-cart-btn {
+  padding: 5px 10px 5px 10px;
+  background: rgb(31, 175, 208);
+  color: rgb(255, 255, 255);
+  transition: 0.5s;
+}
+
+.add-to-cart-btn:hover {
+  transform: scale(1.05);
+}
+
+.quantity-container {
+  vertical-align: middle;
+  font-size: 20px;
 }

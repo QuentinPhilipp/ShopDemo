@@ -15,10 +15,11 @@ export class ItemsComponent implements OnInit {
 
 
   items = ITEMS;
+  myCart;
 
-  constructor(private cartService :CartHandlerService)
+  constructor(private cartService:CartHandlerService)
   {
-
+    this.myCart=cartService.cartProductList;
   }
 
   ngOnInit() {
@@ -28,6 +29,40 @@ export class ItemsComponent implements OnInit {
   onClickMe(item: Item):void
   {
     this.cartService.addItem(item);
+    this.myCart=this.cartService.cartProductList;
+  }
+
+  checkInCart(item :Item) : boolean
+  {
+    // console.log("Check for item",item);
+    this.myCart=this.cartService.cartProductList;
+    // console.log("Check for item",this.myCart);
+    for(let product of this.myCart)
+    {
+      if(item==product.item)
+      {
+        // console.log("Return true");
+        return true;
+      }
+    }
+    // console.log("Return false");
+    return false;
+  }
+
+
+  getNumber(item:Item)
+  {
+    // console.log(item);
+    // console.log(this.myCart);
+    this.myCart=this.cartService.cartProductList;
+    for(let product of this.myCart)
+    {
+      if(item==product.item)
+      {
+        return product.quantity;
+      }
+    }
+    return;
   }
 
 }

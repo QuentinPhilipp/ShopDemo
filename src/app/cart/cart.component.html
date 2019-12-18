@@ -1,7 +1,7 @@
 <div class="cart-container">
   <div class="row justify-content-center">
-    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 center-cart-display text-center">
-      <div class="px-4 py-4">
+    <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 center-cart-display">
+      <div class="px-4 py-4  text-center">
 
         <app-item-cart  *ngFor="let product of cartList; let i = index"
                        [Name]="product.item.name"
@@ -10,6 +10,18 @@
                        [Id]="product.item.id"
                        [TotalPrice]="product.totalPrice"></app-item-cart>
 
+      </div>
+      <div *ngIf="total!=0" class="total-container">
+        <div class="row-container">
+          <div class="row text-center">
+            <div class="col-sm py-1 total">
+              Total
+            </div>
+            <div class="col-sm py-1 total-price">
+              {{total}}$
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

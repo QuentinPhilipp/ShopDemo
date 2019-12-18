@@ -1,12 +1,22 @@
 <div class="item">
     <div class="name-container one-line">
-      <p class="item-name">{{Name}}</p>
+      {{Name}}
     </div>
     <div class="price-container one-line">
-      <p>{{Price}}$</p>
+      {{Price}}$
     </div>
     <div class="quantity-container one-line">
+      <div class="quantity one-line">
         {{Quantity}}
+      </div>
+      <div class="arrows one-line">
+        <div class="arrow-up">
+          <i class="fa fa-arrow-up" (click)="addOne()"></i>
+        </div>
+        <div class="arrow-down">
+          <i class="fa fa-arrow-down" (click)="removeOne()"></i>
+        </div>
+      </div>
     </div>
     <div class="total-price-container one-line">
         {{TotalPrice}}$

@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CartHandlerService }from "./cart-handler.service"
+import { Component , OnInit } from '@angular/core';
+import { CartHandlerService } from "./cart-handler.service"
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,5 @@ import { CartHandlerService }from "./cart-handler.service"
 })
 export class AppComponent {
   title = 'My First Shop';
-
-
 
 }

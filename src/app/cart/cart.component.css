@@ -9,5 +9,34 @@
 .center-cart-display {
   background: rgb(228, 228, 228);
   border: 1px solid rgb(179, 179, 179);
-  
+
+}
+
+.one-line {
+  display: inline-block;
+  /* padding-top: 10px; */
+  vertical-align:middle;
+}
+
+.total-container {
+  color: black;
+  padding: 10px 0px 10px 0px;
+
+}
+
+.total {
+  font-size: 25px;
+  /* margin-left: 10px; */
+}
+
+.total-price {
+  /* margin-left: 60%; */
+  font-size: 25px;
+}
+
+.row-container {
+  width: 50%;
+  transform: translate(-50%,0%);
+  margin-left: 50%;
+  background: rgb(255, 255, 255);
 }

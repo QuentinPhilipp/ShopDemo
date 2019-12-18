@@ -15,6 +15,10 @@ export class CartComponent implements OnInit {
   // items = ITEMS;
 
   cartList: Product[] = [];
+  total =0;
+  _subscription;
+
+
 
   // cartList: Item[] = [{ id: 11, name: 'Banana', price : 30, photo : "assets/img/banana.jpg", defaultPhoto:"/src/1.jpg", desc:"Test de description"},
   // { id: 12, name: 'Apple',price : 30, photo : "assets/img/apple.jpg", defaultPhoto:"/src/1.jpg", desc:"Test de description"},
@@ -27,23 +31,23 @@ export class CartComponent implements OnInit {
 
 
     this.cartList=this.cartService.cartProductList;
+    this.total = this.cartService.totalPrice;
 
-    // //appending all of the item in a list to display them
-    // for(let itemId of this.itemsID)
-    // {
-    //   for(let item of this.items)
-    //   {
-    //     if(item.id == itemId)
-    //     {
-    //       this.cartList.push(item);
-    //     }
-    //   }
-    // }
+    this._subscription = cartService.totalChange.subscribe((value) => {
+    this.total = value;
+    });
+
     console.log(this.cartList);
 
   }
 
   ngOnInit() {
+
+  }
+
+  updatePrice()
+  {
+    console.log("Update total price");
   }
 
 

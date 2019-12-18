@@ -2,11 +2,13 @@
   background: rgb(255, 255, 255);
   margin-bottom: 15px;
   border-radius: 10px;
+  font-size: 20px;
 }
 
 .one-line {
   display: inline-block;
-  padding-top: 10px;
+  /* padding-top: 10px; */
+  vertical-align:middle;
 }
 
 .item-name {
@@ -28,4 +30,9 @@
 }
 .delete-container {
   width: 30%;
+}
+
+
+.arrows {
+  margin-left: 10px;
 }

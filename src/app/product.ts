@@ -5,7 +5,7 @@ export class Product {
   quantity : number;
   totalPrice : number;
 
-  constructor(item: string,quantity:number)
+  constructor(item: Item,quantity:number)
   {
     this.item = item;
     this.quantity = quantity;

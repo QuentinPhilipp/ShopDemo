@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import { Item } from "./item";
 import { Product} from "./product"
+
 
 
 @Injectable({
@@ -8,20 +10,27 @@ import { Product} from "./product"
 })
 export class CartHandlerService {
 
-  cartList: Item[] = [{ id: 11, name: 'Banana', price : 30, photo : "assets/img/banana.jpg", defaultPhoto:"/src/1.jpg", desc:"Test de description"},
-  { id: 12, name: 'Apple',price : 30, photo : "assets/img/apple.jpg", defaultPhoto:"/src/1.jpg", desc:"Test de description"},
-  { id: 13, name: 'Strawberry' ,price : 30, photo : "assets/img/strawberry.jpg", defaultPhoto:"/src/1.jpg", desc:"Test de description"}];
+  cartList: Item[] = [];
 
 
   cartProductList: Product[] = [];
+
+  totalPrice = 0;
+  totalChange: Subject<number> = new Subject<number>();
+
+
 
   constructor() {
     for(var item of this.cartList)
     {
       var prod = new Product(item,1);
+      this.totalPrice+=prod.item.price;
       this.cartProductList.push(prod);
     }
+  }
 
+  updateCart(){
+    this.totalChange.next(this.totalPrice);
   }
 
   ngOnInit()
@@ -33,7 +42,6 @@ export class CartHandlerService {
   {
     // console.log("Item received");
     // console.log(item);
-
     //check if already in
     var flag = false;
     for(var product of this.cartProductList)
@@ -43,6 +51,8 @@ export class CartHandlerService {
         // console.log("Already in list");
         product.quantity+=1;
         product.updatePrice();
+        this.totalPrice += product.item.price;
+
         flag=true;
         break;
       }
@@ -55,10 +65,13 @@ export class CartHandlerService {
     if(flag==false)   //add item
     {
       var prod = new Product(item,1);
+      this.totalPrice += prod.item.price;
       this.cartProductList.push(prod);
+
+
     }
 
-
+    this.updateCart();
     // this.itemList.push(item);
     // console.log(this.cartProductList);
   }
@@ -70,8 +83,8 @@ export class CartHandlerService {
     //remove in cartProductList product where item.id=id
 
     //find the elem
-    var index =-1;
-    for(var i in this.cartProductList)
+    let index =-1;
+    for(let i in this.cartProductList)
     {
       if(this.cartProductList[i].item.id==id)
       {
@@ -82,10 +95,52 @@ export class CartHandlerService {
     // delete this.cartProductList[index];
 
     if (index > -1) {
-       this.cartProductList.splice(index, 1);
+      this.totalPrice -= this.cartProductList[index].item.price * this.cartProductList[index].quantity;
+      this.cartProductList.splice(index, 1);
     }
     console.log("new List ",this.cartProductList);
+    this.updateCart();
 
+
+  }
+
+
+
+  addOne(id) {
+    //find the elem
+    for(let product of this.cartProductList)
+    {
+      if(product.item.id==id)
+      {
+        product.quantity+=1;
+        this.totalPrice += product.item.price;
+        product.updatePrice();
+      }
+
+      console.log("New price : ",this.totalPrice)
+    }
+    this.updateCart();
+  }
+
+  removeOne(id) {
+    for(let product of this.cartProductList)
+    {
+      if(product.item.id==id)
+      {
+        product.quantity-=1;
+        this.totalPrice -= product.item.price;
+        product.updatePrice();
+
+
+        if(product.quantity==0)
+        {
+          this.removeItem(product.item.id);
+        }
+
+        console.log("New price : ",this.totalPrice)
+      }
+    }
+    this.updateCart();
   }
 
 

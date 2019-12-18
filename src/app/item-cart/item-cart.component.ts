@@ -15,11 +15,13 @@ export class ItemCartComponent implements OnInit {
   @Input() Id : number;
   @Input() TotalPrice : number;
 
-  cartService:CartHandlerService;
+  // cartService:CartHandlerService;
+  cartService : CartHandlerService;
 
   constructor(private cartService: CartHandlerService)
   {
     this.cartService = cartService;
+
   }
 
 
@@ -27,9 +29,20 @@ export class ItemCartComponent implements OnInit {
   }
 
 
-  onClickMe(item) {
+  onClickMe() {
     console.log("Remove : ",this.Id);
     this.cartService.removeItem(this.Id);
+  }
+
+
+  addOne() {
+    console.log("add one : ",this.Id);
+    this.cartService.addOne(this.Id);
+  }
+
+  removeOne() {
+    console.log("Remove one : ",this.Id);
+    this.cartService.removeOne(this.Id);
   }
 
 }
