@@ -23,55 +23,44 @@ export class CartHandlerService {
   constructor(private cookieService:CookieService,
             private itemManager : ItemManagerService) {
 
-    let getData= this.cookieService.get('stored-cart');
-
-    //fetch the data received from cookie
-    //  "," between productID and quantity
-    //  ";" between products
-    let separatedItem = getData.split(';');
-    separatedItem.pop();  //remove last elem(always empty)
-
-    let testCart = [];
-    for(let itemCookie of separatedItem)
-    {
-      let extractedCookie = itemCookie.split(',');
-      let item = this.itemManager.getItemById(parseInt(extractedCookie[0]));
-      let prod = new Product(item,parseInt(extractedCookie[1]));
-      this.cartProductList.push(prod);
-    }
-
     this.totalPrice=0;
     for(var prod of this.cartProductList)
     {
       this.totalPrice+=prod.item.price* prod.quantity;
     }
-
-
+    this.getData();
+    this.updateCart();
     // this.cartProductList=getData;
   }
 
-  updateCart(){
-    //creating a string of id to store the cart in cookie (Only get string)
-    let str = "";
-    for(let product of this.cartProductList)
-    {
-      str+=product.item.id.toString();      //storing ID
-      str+=",";
-      str+=product.quantity.toString();     //storing quantity
-      str+=";";
-    }
-    console.log(str);
 
+  saveData() {
+    localStorage.setItem("myCart", JSON.stringify(this.cartProductList));
+  }
+
+  getData() {
+    var returnValue = JSON.parse(localStorage.getItem("myCart"));
+    if(returnValue!=null)
+    {
+      for(let prod of returnValue)
+      {
+        let newProd = new Product(prod.item,prod.quantity)
+        this.cartProductList.push(newProd);
+      }
+    }
+    console.log("Get data : ",this.cartProductList);
+  }
+
+  updateCart(){
     this.totalPrice=0;
     for(var prod of this.cartProductList)
     {
       this.totalPrice+=prod.item.price* prod.quantity;
     }
 
-    this.cookieService.set('stored-cart',str);
+    this.saveData();
 
     this.totalChange.next(this.totalPrice);
-
   }
 
   ngOnInit()
@@ -81,8 +70,6 @@ export class CartHandlerService {
 
   addItem(item)
   {
-    // console.log("Item received");
-    // console.log(item);
     //check if already in
     var flag = false;
     for(var product of this.cartProductList)
@@ -91,7 +78,6 @@ export class CartHandlerService {
       {
         // console.log("Already in list");
         product.quantity+=1;
-        product.updatePrice();
         this.totalPrice += product.item.price;
 
         flag=true;
@@ -108,7 +94,9 @@ export class CartHandlerService {
       this.totalPrice += prod.item.price;
       this.cartProductList.push(prod);
     }
+    console.log(this.cartProductList);
     this.updateCart();
+
   }
 
   removeItem(id)
@@ -129,8 +117,6 @@ export class CartHandlerService {
 
 
   }
-
-
 
   addOne(id) {
     //find the elem
@@ -165,5 +151,10 @@ export class CartHandlerService {
     this.updateCart();
   }
 
+
+  getCart()
+  {
+    return this.cartProductList;
+  }
 
 }

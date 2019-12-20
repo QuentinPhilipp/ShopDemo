@@ -1,0 +1,41 @@
+
+
+.container {
+  margin-top : 100px;
+  text-align: center;
+}
+
+
+
+#error-code {
+  font-size: 110px;
+}
+
+
+#error-message {
+  margin-top: 50px;
+  font-size: 50px;
+  margin-bottom: 200px;
+
+}
+
+.btn-container{
+  display: inline-block;
+  background-color: rgb(244, 250, 12);
+}
+
+#go-back-btn {
+  text-decoration: none !important;
+  color: black;
+  padding: 20px 20px 20px 20px;
+  background-color: #E69C24;
+  font-size: 50px;
+  transition: 0.2s ease-in;
+}
+
+
+#go-back-btn:hover {
+  text-decoration: none !important;
+  color: rgb(255, 255, 255);
+  background-color: #343a40;
+}

@@ -1,10 +1,14 @@
 <div class="cart-container">
-  <div *ngIf="total!=0" class="total-container">
+  <div *ngIf="total!=0">
+    <div class="cart-title">
+      My cart
+    </div>
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 center-cart-display">
-        <div class="px-4 py-4  text-center">
+      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 center-cart-display">
+        <div class="px-4 py-4 cart text-center">
 
           <app-item-cart  *ngFor="let product of cartList; let i = index"
+                         [Photo]="product.item.photos[0]"
                          [Name]="product.item.name"
                          [Price]="product.item.price"
                          [Quantity]="product.quantity"
@@ -12,15 +16,16 @@
                          [TotalPrice]="product.totalPrice"></app-item-cart>
 
         </div>
-        <div *ngIf="total!=0" class="total-container">
-          <div class="row-container">
-            <div class="row text-center">
-              <div class="col-sm py-1 total">
-                Total
-              </div>
-              <div class="col-sm py-1 total-price">
-                {{total}}$
-              </div>
+        <div class="row-container">
+          <div class="row text-center justify-content-around total-container">
+            <div class="col-xl-3 py-1 total">
+              Total
+            </div>
+            <div class="col-xl-3 py-1 total-price">
+              {{total}}$
+            </div>
+            <div class="col-xl-3 py-1 checkout">
+              Checkout
             </div>
           </div>
         </div>
@@ -29,14 +34,15 @@
   </div>
   <div *ngIf="total==0">
     <div class="row justify-content-center empty-container">
-      <div class="col-sm-6 warning-empty">
+      <div class="col-12 warning-empty">
         <div class="empty-cart text-center">
-          Your cart is empty. <br>Go shopping !
+          <b>Empty cart</b>
+          <p id="sml-txt">You need to add some item</p>
         </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <a href="#" routerLink="/product" ><button class="go-back-btn">Take me to the product</button></a>
+    <div class="row justify-content-center ">
+      <a href="#" class="go-back-btn" routerLink="/product" ><i class="fa fa-angle-double-left arrow"></i>Return to shop</a>
     </div>
   </div>
 </div>

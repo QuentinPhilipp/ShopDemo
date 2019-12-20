@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Item } from "../item"
 import { Product} from "../product"
 import { CartHandlerService } from "../cart-handler.service"
+import { Router, NavigationEnd } from '@angular/router';
+
 
 @Component({
   selector: 'app-cart',
@@ -41,7 +43,7 @@ export class CartComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    window.scrollTo(0, 0)
   }
 
   updatePrice()

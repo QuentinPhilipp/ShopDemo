@@ -11,14 +11,17 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ItemCartComponent } from './item-cart/item-cart.component';
 import { SingleProductComponent } from './single-product/single-product.component';
-import { CookieService } from 'ngx-cookie-service'
+import { CookieService } from 'ngx-cookie-service';
+import { FofPageComponent } from './fof-page/fof-page.component'
 
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/product', pathMatch: 'full' },
   { path: 'product', component: HomeComponent },
-  { path: '*', redirectTo: 'product' },
   { path: 'product/:id', component: SingleProductComponent },
-  { path: 'cart',component: CartComponent }
+  { path: 'cart',component: CartComponent },
+  { path: 'not-found', component: FofPageComponent },
+  { path: '**', redirectTo: 'not-found' }
 ];
 
 @NgModule({
@@ -28,7 +31,8 @@ const appRoutes: Routes = [
     CartComponent,
     HomeComponent,
     ItemCartComponent,
-    SingleProductComponent
+    SingleProductComponent,
+    FofPageComponent
   ],
   imports: [
     BrowserModule,

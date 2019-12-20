@@ -29,21 +29,23 @@ export class ItemsComponent implements OnInit {
     this.myCart=this.cartService.cartProductList;
   }
 
-  checkInCart(item :Item) : boolean
+  checkInCart(itemToFind :Item) : number
   {
-    // console.log("Check for item",item);
-    this.myCart=this.cartService.cartProductList;
-    // console.log("Cart",this.myCart);
+    this.myCart=this.cartService.getCart();
     for(let product of this.myCart)
     {
-      if(item==product.item)
+      // console.log("product",product.item.id);
+      // console.log("item",itemToFind.id);
+
+      // console.log(product.item.id == itemToFind.id);
+
+      if(product.item.id == itemToFind.id)
       {
-        // console.log("Return true");
-        return true;
+        // console.log("Equal");
+        return product.quantity;
       }
     }
-    // console.log("Return false");
-    return false;
+    return 0;
   }
 
 

@@ -29,9 +29,10 @@ display: block;
 
 .add-to-cart-btn {
   padding: 5px 10px 5px 10px;
-  background: rgb(31, 175, 208);
+  background: #E69C24;
   color: rgb(255, 255, 255);
   transition: 0.3s;
+  border: none;
 }
 
 .add-to-cart-btn:hover {
@@ -52,5 +53,5 @@ display: block;
 
 .card-title:hover {
   text-decoration: none;
-  color: rgb(31, 175, 208);
+  color: #E69C24;
 }

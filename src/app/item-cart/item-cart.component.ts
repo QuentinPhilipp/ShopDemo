@@ -9,6 +9,7 @@ import { CartHandlerService } from "../cart-handler.service"
 })
 export class ItemCartComponent implements OnInit {
 
+  @Input() Photo : string;
   @Input() Price : number;
   @Input() Name : string;
   @Input() Quantity : number;

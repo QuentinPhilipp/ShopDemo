@@ -36,3 +36,9 @@ body, input[type="text"], button {
 .classic {
   color : rgb(170, 170, 170) !important;
 }
+
+.navbar-brand {
+  text-transform: uppercase;
+  font-style: oblique;
+  font-weight: bold;
+}

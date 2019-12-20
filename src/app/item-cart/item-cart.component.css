@@ -1,37 +1,33 @@
 .item {
   background: rgb(255, 255, 255);
-  margin-bottom: 15px;
-  border-radius: 10px;
+  /* margin-bottom: 15px; */
   font-size: 20px;
+}
+hr {
+  width: 100%;
 }
 
 .one-line {
   display: inline-block;
-  /* padding-top: 10px; */
   vertical-align:middle;
 }
 
-.item-name {
-  font-size: 20px;
+.pad-top {
+  padding-top: 20px;
 }
 
-.name-container {
-  width: 30%;
+.round-pic {
+  width: 100%;
 }
 
-.price-container {
-  width: 10%;
+.remove-btn {
+  background: rgb(255, 255, 255);
+  text-decoration: underline;
+  border: 0;
 }
-.quantity-container {
-  width: 20%;
+.remove-btn:hover {
+  text-decoration: none;
 }
-.total-price-container {
-  width: 10%;
-}
-.delete-container {
-  width: 30%;
-}
-
 
 .arrows {
   margin-left: 10px;

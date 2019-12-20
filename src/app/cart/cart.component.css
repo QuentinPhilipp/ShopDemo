@@ -1,17 +1,30 @@
 .cart-container {
-  margin-top: 50px;
-  height: 100vh;
+  margin-top: 60px;
   width: 100%;
-  background: rgb(157, 241, 229);
+  /* background: rgb(157, 241, 229); */
 }
 
 
 .center-cart-display {
-  background: rgb(228, 228, 228);
-  border: 1px solid rgb(179, 179, 179);
-
+  /* background: rgb(228, 228, 228); */
+  /* border: 1px solid rgb(179, 179, 179); */
 }
 
+.cart-title {
+  font-size: 35px;
+  text-align: center;
+}
+
+hr {
+  width: 80%;
+}
+
+.cart {
+  margin-top: 20px;
+  height: 70vh;
+  overflow-y: scroll;
+  border: 1px solid rgb(227, 227, 227);
+}
 .one-line {
   display: inline-block;
   /* padding-top: 10px; */
@@ -20,29 +33,39 @@
 
 .total-container {
   color: black;
-  padding: 10px 0px 10px 0px;
+  margin-top: 10px;
+  padding: 10px 20px 10px 20px;
 
 }
 
 .total {
   font-size: 25px;
+  background: rgb(221, 221, 221);
+
   /* margin-left: 10px; */
 }
 
 .total-price {
   /* margin-left: 60%; */
+  border: solid 1px rgb(221, 221, 221);
+  font-size: 25px;
+}
+
+.checkout {
+  background: #E69C24;
   font-size: 25px;
 }
 
 .row-container {
-  width: 50%;
+  width: 100%;
+
   transform: translate(-50%,0%);
   margin-left: 50%;
   background: rgb(255, 255, 255);
 }
 
 .empty-container {
-  padding-top: 30vh;
+  padding-top: 20vh;
 }
 .empty-cart {
   padding: 20px 10px 20px 10px;
@@ -52,15 +75,31 @@
 .warning-empty {
 
   background: rgb(255, 255, 255);
-  border: 1px solid rgb(200, 200, 200);
+  /* border: 1px solid rgb(200, 200, 200); */
   border-radius: 10px;
 }
 
+.empty-cart {
+  font-size: 70px;
+  text-transform: uppercase;
+}
+
+#sml-txt {
+  font-size: 30px;
+  font-weight: lighter;
+}
+
+.arrow {
+  font-size: 70px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
 
 .go-back-btn {
-  margin-top: 30px;
-  border: 1px solid rgb(6, 155, 159);
-  background: rgb(54, 189, 219);
-  padding: 10px 10px 10px 10px;
-  border-radius: 10px;
+  margin-top: 100px;
+  font-size: 25px;
+  background: #E69C24;
+  padding: 20px 60px 20px 60px;
+  text-decoration: none;
+  color :#343A40;
 }

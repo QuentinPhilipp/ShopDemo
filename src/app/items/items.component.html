@@ -13,8 +13,8 @@
       <div class="row">
         <button class="col-9 add-to-cart-btn" (click)="onClickMe(item)">Add to the cart !</button>
 
-        <div *ngIf="checkInCart(item)" class="col-3 text-center quantity-container py-1">
-          {{getNumber(item)}}
+        <div *ngIf="checkInCart(item)>0" class="col-3 text-center quantity-container py-1">
+          {{checkInCart(item)}}
         </div>
       </div>
 

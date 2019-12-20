@@ -1,27 +1,43 @@
 <div class="item">
-    <div class="name-container one-line">
+  <div class="row text-center justify-content-center">
+
+    <div class="product-pic col-xl-2">
+      <img class="round-pic" src="{{Photo}}" alt="" onerror="this.src='assets/img/error.jpg';">
+    </div>
+    <!-- Name -->
+    <div class="col-4 col-xl-2 name-container my-auto">
       {{Name}}
     </div>
-    <div class="price-container one-line">
+
+    <!-- Price for 1 item -->
+    <div class="col-3 col-xl-2 price-container my-auto">
       {{Price | number:'1.0-2'}}$
     </div>
-    <div class="quantity-container one-line">
+
+    <!-- Quantity Modifier -->
+    <div class="col-3 col-xl-2 quantity-container my-auto">
       <div class="quantity one-line">
         {{Quantity}}
       </div>
       <div class="arrows one-line">
         <div class="arrow-up">
-          <i class="fa fa-arrow-up" (click)="addOne()"></i>
+          <i class="fa fa-plus-circle" (click)="addOne()"></i>
         </div>
         <div class="arrow-down">
-          <i class="fa fa-arrow-down" (click)="removeOne()"></i>
+          <i class="fa fa-minus-circle" (click)="removeOne()"></i>
         </div>
       </div>
     </div>
-    <div class="total-price-container one-line">
+
+    <!-- Total price of the product -->
+    <div class="col-2 col-xl-2 total-price-container my-auto">
         {{TotalPrice | number:'1.0-2'}}$
     </div>
-    <div class="delete-container one-line">
-      <button class="remove-btn btn btn-danger" (click)="onClickMe()">Remove</button>
+
+    <!-- Delete button -->
+    <div class="col-4 col-xl-2 delete-container my-auto">
+      <button class="remove-btn" (click)="onClickMe()">Remove</button>
     </div>
+  </div>
 </div>
+<hr>

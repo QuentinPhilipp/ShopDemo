@@ -35,9 +35,10 @@
 .add-to-cart-btn {
   margin-top: 20px;
   padding: 5px 10px 5px 10px;
-  background: rgb(31, 175, 208);
-  color: rgb(255, 255, 255);
-  border-radius: 10px;
+  background: #E69C24;
+  color: #343A40;
+  border: none;
+  border-radius: 8px;
   transition: 0.3s;
 
 }
