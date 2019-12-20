@@ -1,0 +1,88 @@
+<div class="row single-item-container">
+  <div class="col-sm-12 col-md-4">
+    <div class="carousel-container">
+      <div id="carouselControl" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+
+          <!-- Display first photo as "active" in the carousel -->
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src={{photos[0]}}
+            onerror="this.src='assets/img/error.jpg';" alt="First slide">
+          </div>
+
+          <!-- Display all other photo-->
+          <div class="carousel-item" *ngFor="let photo of getOtherPhotos()">
+              <img class="d-block img-fluid" src={{photo}}
+              onerror="this.src='assets/img/error.jpg';" alt="First slide">
+          </div>
+        </div>
+
+        <!-- Display arrow only if there is more than 1 photo -->
+        <div *ngIf="photos.length>1">
+          <a class="carousel-control-prev" href="#carouselControl" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselControl" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-8 py-4">
+    <div class="centered">
+      <h1>{{name | uppercase }}</h1>
+      <h3>{{price}}$</h3>
+
+      <hr>
+
+      <p class="desc">{{desc}}</p>
+
+      <button class="add-to-cart-btn" (click)="onClickMe(item)">Add to the cart !</button>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div class="row single-item-container">
+  <div class="col-sm-12 col-md-4">
+    <div class="carousel-container">
+      <div id="carouselControl" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img class="d-block img-fluid" src={{photos[0]}} alt="First slide">
+          </div>
+          <div class="carousel-item">
+            <img class="d-block img-fluid" src={{photos[1]}} alt="Second slide">
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselControl" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselControl" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-12 col-md-8 py-4">
+    <h1>{{name | uppercase }}</h1>
+    <h3>{{price}}$</h3>
+
+    <hr>
+
+    <h4>{{desc}}</h4>
+
+    <button class="add-to-cart-btn" (click)="onClickMe(item)">Add to the cart !</button>
+
+  </div>
+</div> -->

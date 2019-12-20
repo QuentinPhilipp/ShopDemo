@@ -23,19 +23,34 @@ display: block;
   background:rgb(244, 244, 244);
 }
 
+.card-text {
+  max-width: 250px;
+}
 
 .add-to-cart-btn {
   padding: 5px 10px 5px 10px;
   background: rgb(31, 175, 208);
   color: rgb(255, 255, 255);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
 .add-to-cart-btn:hover {
-  transform: scale(1.05);
+  transform: scale(1.02);
 }
 
 .quantity-container {
   vertical-align: middle;
   font-size: 20px;
+}
+
+
+.card-title {
+  text-decoration: none;
+  color: black;
+  transition: 0.3s;
+}
+
+.card-title:hover {
+  text-decoration: none;
+  color: rgb(31, 175, 208);
 }

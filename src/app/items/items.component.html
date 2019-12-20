@@ -1,29 +1,27 @@
-<div class="row article-row px-4 py-4">
-  <div *ngFor="let item of items"
-        class="col-lg-3 col-md-4 mb-4">
+<div class="card h-100 w-100">
+  <img [routerLink]="[item.id]" class="card-img-top article-photo" src={{item.photos[0]}}
+  onerror="this.src='assets/img/error.jpg';" alt="">
+  <div class="card-body">
+    <h4>
+      <a class="card-title" href="#" [routerLink]="[item.id]">{{item.name | uppercase}}</a>
+    </h4>
+    <h5>{{item.price}}$</h5>
+    <p class="card-text">{{ (item.desc.length>50)? (item.desc | slice:0:50)+'..':(item.desc) }}</p>
 
-    <div class="card h-100">
-      <a href="/produit"><img class="card-img-top article-photo" src={{item.photo}} alt=""></a>
-      <div class="card-body">
-        <h4 class="card-title">
-          <a href="/produit">{{item.name | uppercase}}</a>
-        </h4>
-        <h5>{{item.price}}$</h5>
-        <p class="card-text">{{item.desc}}</p>
 
-        <div class="cart-container">
-          <div class="row">
-            <button class="col-9 add-to-cart-btn" (click)="onClickMe(item)">Add to the cart !</button>
+    <div class="cart-container">
+      <div class="row">
+        <button class="col-9 add-to-cart-btn" (click)="onClickMe(item)">Add to the cart !</button>
 
-            <div *ngIf="checkInCart(item)" class="col-3 text-center quantity-container py-1">
-              {{getNumber(item)}}
-            </div>
-          </div>
-
+        <div *ngIf="checkInCart(item)" class="col-3 text-center quantity-container py-1">
+          {{getNumber(item)}}
         </div>
-
-
       </div>
+
     </div>
+
+
   </div>
 </div>
+
+<!-- [routerLink]="/product/[id]" -->

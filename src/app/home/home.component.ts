@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ItemManagerService} from "../item-manager.service"
+
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+
+  items;
+
+  constructor(private itemService :ItemManagerService) { }
 
   ngOnInit() {
+    this.items = this.itemService.getAllItems();
   }
 
 }

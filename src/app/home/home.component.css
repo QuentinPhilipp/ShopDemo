@@ -3,3 +3,13 @@
   width: 100%;
   background-color: rgb(191, 89, 191);
 }
+
+
+
+.prod {
+  margin-left: 20px;
+  margin-bottom: 20px;
+
+  min-width: 300px;
+
+}

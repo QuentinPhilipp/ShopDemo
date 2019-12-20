@@ -16,11 +16,11 @@ export class ItemCartComponent implements OnInit {
   @Input() TotalPrice : number;
 
   // cartService:CartHandlerService;
-  cartService : CartHandlerService;
+  // cartService;
 
   constructor(private cartService: CartHandlerService)
   {
-    this.cartService = cartService;
+    // this.cartService = cartService;
 
   }
 

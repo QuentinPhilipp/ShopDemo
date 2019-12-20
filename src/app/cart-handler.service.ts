@@ -2,6 +2,10 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Item } from "./item";
 import { Product} from "./product"
+import {CookieService} from 'ngx-cookie-service';
+import {ItemManagerService}from './item-manager.service'
+
+
 
 
 
@@ -10,27 +14,64 @@ import { Product} from "./product"
 })
 export class CartHandlerService {
 
-  cartList: Item[] = [];
-
-
   cartProductList: Product[] = [];
 
   totalPrice = 0;
   totalChange: Subject<number> = new Subject<number>();
 
 
+  constructor(private cookieService:CookieService,
+            private itemManager : ItemManagerService) {
 
-  constructor() {
-    for(var item of this.cartList)
+    let getData= this.cookieService.get('stored-cart');
+
+    //fetch the data received from cookie
+    //  "," between productID and quantity
+    //  ";" between products
+    let separatedItem = getData.split(';');
+    separatedItem.pop();  //remove last elem(always empty)
+
+    let testCart = [];
+    for(let itemCookie of separatedItem)
     {
-      var prod = new Product(item,1);
-      this.totalPrice+=prod.item.price;
+      let extractedCookie = itemCookie.split(',');
+      let item = this.itemManager.getItemById(parseInt(extractedCookie[0]));
+      let prod = new Product(item,parseInt(extractedCookie[1]));
       this.cartProductList.push(prod);
     }
+
+    this.totalPrice=0;
+    for(var prod of this.cartProductList)
+    {
+      this.totalPrice+=prod.item.price* prod.quantity;
+    }
+
+
+    // this.cartProductList=getData;
   }
 
   updateCart(){
+    //creating a string of id to store the cart in cookie (Only get string)
+    let str = "";
+    for(let product of this.cartProductList)
+    {
+      str+=product.item.id.toString();      //storing ID
+      str+=",";
+      str+=product.quantity.toString();     //storing quantity
+      str+=";";
+    }
+    console.log(str);
+
+    this.totalPrice=0;
+    for(var prod of this.cartProductList)
+    {
+      this.totalPrice+=prod.item.price* prod.quantity;
+    }
+
+    this.cookieService.set('stored-cart',str);
+
     this.totalChange.next(this.totalPrice);
+
   }
 
   ngOnInit()
@@ -61,44 +102,29 @@ export class CartHandlerService {
         // console.log("New product");
       }
     }
-
     if(flag==false)   //add item
     {
       var prod = new Product(item,1);
       this.totalPrice += prod.item.price;
       this.cartProductList.push(prod);
-
-
     }
-
     this.updateCart();
-    // this.itemList.push(item);
-    // console.log(this.cartProductList);
   }
 
   removeItem(id)
   {
-    console.log("Service Remove ",id);
-
     //remove in cartProductList product where item.id=id
-
     //find the elem
-    let index =-1;
-    for(let i in this.cartProductList)
+    var i;
+    for(i=0;i < this.cartProductList.length;i++)
     {
       if(this.cartProductList[i].item.id==id)
       {
-        console.log("Found");
-        index=i;
+        this.totalPrice -= this.cartProductList[i].item.price * this.cartProductList[i].quantity;
+        this.cartProductList.splice(i, 1);
       }
     }
     // delete this.cartProductList[index];
-
-    if (index > -1) {
-      this.totalPrice -= this.cartProductList[index].item.price * this.cartProductList[index].quantity;
-      this.cartProductList.splice(index, 1);
-    }
-    console.log("new List ",this.cartProductList);
     this.updateCart();
 
 
@@ -116,8 +142,6 @@ export class CartHandlerService {
         this.totalPrice += product.item.price;
         product.updatePrice();
       }
-
-      console.log("New price : ",this.totalPrice)
     }
     this.updateCart();
   }
@@ -136,8 +160,6 @@ export class CartHandlerService {
         {
           this.removeItem(product.item.id);
         }
-
-        console.log("New price : ",this.totalPrice)
       }
     }
     this.updateCart();

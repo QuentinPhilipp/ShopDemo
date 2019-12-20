@@ -3,7 +3,7 @@
       {{Name}}
     </div>
     <div class="price-container one-line">
-      {{Price}}$
+      {{Price | number:'1.0-2'}}$
     </div>
     <div class="quantity-container one-line">
       <div class="quantity one-line">
@@ -19,7 +19,7 @@
       </div>
     </div>
     <div class="total-price-container one-line">
-        {{TotalPrice}}$
+        {{TotalPrice | number:'1.0-2'}}$
     </div>
     <div class="delete-container one-line">
       <button class="remove-btn btn btn-danger" (click)="onClickMe()">Remove</button>

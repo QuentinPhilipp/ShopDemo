@@ -40,3 +40,27 @@
   margin-left: 50%;
   background: rgb(255, 255, 255);
 }
+
+.empty-container {
+  padding-top: 30vh;
+}
+.empty-cart {
+  padding: 20px 10px 20px 10px;
+  font-size: 35px;
+}
+
+.warning-empty {
+
+  background: rgb(255, 255, 255);
+  border: 1px solid rgb(200, 200, 200);
+  border-radius: 10px;
+}
+
+
+.go-back-btn {
+  margin-top: 30px;
+  border: 1px solid rgb(6, 155, 159);
+  background: rgb(54, 189, 219);
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
+}

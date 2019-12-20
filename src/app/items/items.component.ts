@@ -1,10 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import {CartComponent} from '../cart/cart.component';
 import { Item } from "../item"
 import { CartHandlerService }from "../cart-handler.service"
-
-
-import { ITEMS } from '../myItemList';
+import {ItemManagerService} from "../item-manager.service"
 
 @Component({
   selector: 'app-items',
@@ -13,8 +11,7 @@ import { ITEMS } from '../myItemList';
 })
 export class ItemsComponent implements OnInit {
 
-
-  items = ITEMS;
+  @Input() item;
   myCart;
 
   constructor(private cartService:CartHandlerService)
@@ -26,9 +23,9 @@ export class ItemsComponent implements OnInit {
 
   }
 
-  onClickMe(item: Item):void
+  onClickMe():void
   {
-    this.cartService.addItem(item);
+    this.cartService.addItem(this.item);
     this.myCart=this.cartService.cartProductList;
   }
 
@@ -36,7 +33,7 @@ export class ItemsComponent implements OnInit {
   {
     // console.log("Check for item",item);
     this.myCart=this.cartService.cartProductList;
-    // console.log("Check for item",this.myCart);
+    // console.log("Cart",this.myCart);
     for(let product of this.myCart)
     {
       if(item==product.item)
