@@ -22,7 +22,8 @@ hr {
 .cart {
   margin-top: 20px;
   height: 70vh;
-  overflow-y: scroll;
+  overflow-y: auto  ;
+  overflow-x: hidden;
   border: 1px solid rgb(227, 227, 227);
 }
 .one-line {
@@ -54,6 +55,12 @@ hr {
 .checkout {
   background: #E69C24;
   font-size: 25px;
+  text-decoration: none;
+  color: black;
+}
+.checkout:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .row-container {
@@ -102,4 +109,17 @@ hr {
   padding: 20px 60px 20px 60px;
   text-decoration: none;
   color :#343A40;
+}
+
+
+#scrollbar1::-webkit-scrollbar {
+    width: 6px;
+}
+
+#scrollbar1::-webkit-scrollbar-thumb {
+    background-color: #E69C24;
+}
+
+#scrollbar1::-webkit-scrollbar-track {
+    background-color: #dddddd;
 }

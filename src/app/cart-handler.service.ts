@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Item } from "./item";
 import { Product} from "./product"
-import {CookieService} from 'ngx-cookie-service';
 import {ItemManagerService}from './item-manager.service'
-
-
-
 
 
 @Injectable({
@@ -15,13 +11,13 @@ import {ItemManagerService}from './item-manager.service'
 export class CartHandlerService {
 
   cartProductList: Product[] = [];
-
+  dataReceived = false;
+  localDataTested = false;
   totalPrice = 0;
   totalChange: Subject<number> = new Subject<number>();
 
 
-  constructor(private cookieService:CookieService,
-            private itemManager : ItemManagerService) {
+  constructor(private itemManager : ItemManagerService) {
 
     this.totalPrice=0;
     for(var prod of this.cartProductList)
@@ -40,8 +36,10 @@ export class CartHandlerService {
 
   getData() {
     var returnValue = JSON.parse(localStorage.getItem("myCart"));
+    this.localDataTested=true;
     if(returnValue!=null)
     {
+      this.dataReceived=true;
       for(let prod of returnValue)
       {
         let newProd = new Product(prod.item,prod.quantity)
@@ -94,7 +92,8 @@ export class CartHandlerService {
       this.totalPrice += prod.item.price;
       this.cartProductList.push(prod);
     }
-    console.log(this.cartProductList);
+    // console.log("Add Item");
+    // console.log(this.cartProductList);
     this.updateCart();
 
   }
@@ -155,6 +154,24 @@ export class CartHandlerService {
   getCart()
   {
     return this.cartProductList;
+  }
+
+  emptyCart()
+  {
+    this.cartProductList=[];
+    this.saveData();
+  }
+
+  getItemInCartById(id)
+  {
+    var i;
+    for(i=0;i < this.cartProductList.length;i++)
+    {
+      if(this.cartProductList[i].item.id==id)
+      {
+        return this.cartProductList[i];
+      }
+    }
   }
 
 }

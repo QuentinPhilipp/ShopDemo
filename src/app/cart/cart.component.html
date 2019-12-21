@@ -4,8 +4,8 @@
       My cart
     </div>
     <div class="row justify-content-center">
-      <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 center-cart-display">
-        <div class="px-4 py-4 cart text-center">
+      <div class="col-sm-12 col-md-6 col-lg-6 col-xl-6 center-cart-display">
+        <div id="scrollbar1" class="px-4 py-4 cart text-center">
 
           <app-item-cart  *ngFor="let product of cartList; let i = index"
                          [Photo]="product.item.photos[0]"
@@ -13,7 +13,8 @@
                          [Price]="product.item.price"
                          [Quantity]="product.quantity"
                          [Id]="product.item.id"
-                         [TotalPrice]="product.totalPrice"></app-item-cart>
+                         [TotalPrice]="product.totalPrice">
+                       </app-item-cart>
 
         </div>
         <div class="row-container">
@@ -24,9 +25,10 @@
             <div class="col-xl-3 py-1 total-price">
               {{total}}$
             </div>
-            <div class="col-xl-3 py-1 checkout">
+
+            <a href="#" class="col-xl-3 py-1 checkout" (click)="checkoutClick()" routerLink="/products">
               Checkout
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -42,7 +44,7 @@
       </div>
     </div>
     <div class="row justify-content-center ">
-      <a href="#" class="go-back-btn" routerLink="/product" ><i class="fa fa-angle-double-left arrow"></i>Return to shop</a>
+      <a href="#" class="go-back-btn" routerLink="/products" ><i class="fa fa-angle-double-left arrow"></i>Return to shop</a>
     </div>
   </div>
 </div>

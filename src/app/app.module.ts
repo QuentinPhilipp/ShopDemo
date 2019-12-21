@@ -16,9 +16,9 @@ import { FofPageComponent } from './fof-page/fof-page.component'
 
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/product', pathMatch: 'full' },
-  { path: 'product', component: HomeComponent },
-  { path: 'product/:id', component: SingleProductComponent },
+  { path: '', redirectTo: '/products', pathMatch: 'full' },
+  { path: 'products', component: HomeComponent },
+  { path: 'products/:id', component: SingleProductComponent },
   { path: 'cart',component: CartComponent },
   { path: 'not-found', component: FofPageComponent },
   { path: '**', redirectTo: 'not-found' }
@@ -42,9 +42,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     CartHandlerService,
-    ItemManagerService,
-    CookieService
-
+    ItemManagerService
   ],
   bootstrap: [AppComponent]
 })

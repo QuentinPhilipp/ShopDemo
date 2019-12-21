@@ -54,8 +54,8 @@ export class SingleProductComponent implements OnInit {
         newList.push(this.photos[photoIndex]);
       }
     }
-    console.log('New photos',newList)
     return newList;
   }
+
 
 }

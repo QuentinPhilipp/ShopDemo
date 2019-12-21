@@ -18,12 +18,24 @@
 </div>
 
 
-
-<div class="product-container row px-4 py-4 justify-content-center">
-  <div class="prod"  *ngFor="let item of items">
-      <app-items [item]="item" class="w-100"></app-items>
+<section id="all-product">
+  <div class="product-container row px-4 py-4 justify-content-center">
+    <div class="prod"  *ngFor="let item of items">
+        <app-items [item]="item" class="w-100"></app-items>
+    </div>
   </div>
-</div>
+</section>
+
+<hr>
+<section id="recommendation">
+  <h2 class="interresting-item">The items that might interresed you ! </h2>
+
+  <div class="product-container row px-4 py-4 justify-content-center">
+    <div class="prod"  *ngFor="let item of interrestingItem">
+        <app-items [item]="item" class="w-100"></app-items>
+    </div>
+  </div>
+</section>
 
 
   <!-- <app-item-cart  *ngFor="let product of cartList; let i = index"

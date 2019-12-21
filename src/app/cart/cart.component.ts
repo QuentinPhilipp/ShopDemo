@@ -51,5 +51,13 @@ export class CartComponent implements OnInit {
     console.log("Update total price");
   }
 
+  checkoutClick()
+  {
+    console.log("Checkout to implement");
+    alert("Checkout not implemented\nYour cart has been cleared");
+    this.cartService.emptyCart();
+    this.cartList=this.cartService.cartProductList;
+  }
+
 
 }

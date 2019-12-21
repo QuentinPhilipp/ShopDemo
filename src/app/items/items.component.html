@@ -6,7 +6,7 @@
       <a class="card-title" href="#" [routerLink]="[item.id]">{{item.name | uppercase}}</a>
     </h4>
     <h5>{{item.price}}$</h5>
-    <p class="card-text">{{ (item.desc.length>50)? (item.desc | slice:0:50)+'..':(item.desc) }}</p>
+    <p class="card-text">{{ (item.desc.length>50)? (item.desc | slice:0:50)+'...':(item.desc) }}</p>
 
 
     <div class="cart-container">

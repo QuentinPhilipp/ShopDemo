@@ -14,7 +14,7 @@
 
 .carousel-container {
   margin-left: 3vw;
-  height: 80vh;
+  max-height: 80vh;
   border: 1px solid rgb(181, 181, 181);
 }
 
@@ -45,4 +45,22 @@
 
 .add-to-cart-btn:hover {
   transform: scale(1.02);
+}
+
+
+.carousel-indicators li {
+    display: inline-block;
+    width: 40px;
+    height: 5px;
+    margin: 5px;
+    text-indent: 0;
+    cursor: pointer;
+    border: none;
+    background-color: #acacac;
+}
+.carousel-indicators .active {
+    width: 40px;
+    height: 5px;
+    margin: 5px;
+    background-color: #494949;
 }
