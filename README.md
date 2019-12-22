@@ -2,6 +2,7 @@
 # MyShop
 
 This project is the Front End Assignment for SportCompass
+Hosted by Firebase at : https://angular-shop-demo-6f28b.firebaseapp.com/products
 
 ## Development server
 
