@@ -1,12 +1,11 @@
 
 # MyShop
 
-This project is the Front End Assignment for SportCompass
+This project is the Front End Assignment for SportCompass.
+
 Hosted by Firebase at : https://angular-shop-demo-6f28b.firebaseapp.com/products
 
 ## Development server
-
-The project must be running on a development server. It is not hosted.
 
 Run `ng serve` in the folder for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 

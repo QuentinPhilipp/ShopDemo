@@ -159,7 +159,7 @@ export class CartHandlerService {
   emptyCart()
   {
     this.cartProductList=[];
-    this.saveData();
+    this.updateCart();
   }
 
   getItemInCartById(id)
