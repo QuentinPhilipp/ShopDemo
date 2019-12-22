@@ -20,6 +20,8 @@ Each product can have 1 or more product. If there is more than one image, they a
 ## Cart
 
 By clicking on the Shopping Cart tab, you can view your shopping cart. It is possible to add more items, remove items or change the quantities of an item.
+If the shopping cart is empty, the user is invited to add items.
+
 The payment is not implemented since it's only a demo, when you press checkout the cart is just emptied and you go back to the main page.
 
 ## Angular
@@ -50,3 +52,11 @@ Here is the list of components :
  - **ItemCart** : The component that determines the behavior of an item when it is in the shopping cart.
  - **Items** : The component that determines the behavior of an item when it is in the home menu.
  - **SingleProduct** : The component that generates a product page for each product
+
+
+## Services
+
+
+- **ItemManager** : This service contains all items and functions to retrieve these items. In a real application this service would use a database to create the items.
+
+- **CartHandler** : This service stores the user's shopping cart. The present functions allow you to modify the basket or to retrieve information from it.
