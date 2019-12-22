@@ -11,7 +11,7 @@ Run `ng serve` in the folder for a dev server. Navigate to `http://localhost:420
 
 ## Responsive Layout
 
-I used Bootstrap 4 for the layout. Everything is adapted to be seen on a mobile phone or computer
+I used Bootstrap 4 for the layout. Everything is adapted to be seen on a mobile phone or computer.
 
 ## Product images
 
@@ -39,7 +39,7 @@ I've been trying to implement unit tests. There are some for services and for so
 
 ## Data persistence
 
-The cart is automaticly saved without the need of a profile. I used localStorage to store the cart each time it is modified. On the loading of the website the localStorage is used to set the cart.
+The cart is automatically saved without the need of a profile. I used localStorage to store the cart each time it is modified. On the loading of the website the localStorage is used to set the cart.
 
 
 ## Components
