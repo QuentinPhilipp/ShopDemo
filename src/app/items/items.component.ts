@@ -2,6 +2,7 @@ import { Component, OnInit,Input } from '@angular/core';
 import {CartComponent} from '../cart/cart.component';
 import { Item } from "../item"
 import { CartHandlerService }from "../cart-handler.service"
+import { RouterModule, Routes } from '@angular/router';
 import {ItemManagerService} from "../item-manager.service"
 
 @Component({
@@ -17,6 +18,10 @@ export class ItemsComponent implements OnInit {
   constructor(private cartService:CartHandlerService)
   {
     this.myCart=cartService.cartProductList;
+
+    //default value
+    this.item = new Item(-1,'Error Item',999,"Fake description",["assets/img/error.jpg","assets/img/error.jpg"]);
+
   }
 
   ngOnInit() {
@@ -35,7 +40,7 @@ export class ItemsComponent implements OnInit {
     for(let product of this.myCart)
     {
       // console.log("product",product.item.id);
-      // console.log("item",itemToFind.id);
+      // console.log("item",itemToFind);
 
       // console.log(product.item.id == itemToFind.id);
 
@@ -49,19 +54,19 @@ export class ItemsComponent implements OnInit {
   }
 
 
-  getNumber(item:Item)
-  {
-    // console.log(item);
-    // console.log(this.myCart);
-    this.myCart=this.cartService.cartProductList;
-    for(let product of this.myCart)
-    {
-      if(item==product.item)
-      {
-        return product.quantity;
-      }
-    }
-    return;
-  }
+  // getNumber(item:Item)
+  // {
+  //   // console.log(item);
+  //   // console.log(this.myCart);
+  //   this.myCart=this.cartService.cartProductList;
+  //   for(let product of this.myCart)
+  //   {
+  //     if(item==product.item)
+  //     {
+  //       return product.quantity;
+  //     }
+  //   }
+  //   return;
+  // }
 
 }

@@ -38,7 +38,7 @@ export class CartComponent implements OnInit {
     this.total = value;
     });
 
-    console.log(this.cartList);
+    //console.log(this.cartList);
 
   }
 
@@ -48,12 +48,12 @@ export class CartComponent implements OnInit {
 
   updatePrice()
   {
-    console.log("Update total price");
+    //console.log("Update total price");
   }
 
   checkoutClick()
   {
-    console.log("Checkout to implement");
+    //console.log("Checkout to implement");
     alert("Checkout not implemented\nYour cart has been cleared");
     this.cartService.emptyCart();
     this.cartList=this.cartService.cartProductList;

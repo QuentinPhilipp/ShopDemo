@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.items = this.itemService.getAllItems();
-    console.log(this.items);
+    //console.log(this.items);
     this.getInterestingItem();
   }
 

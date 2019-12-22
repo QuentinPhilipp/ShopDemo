@@ -34,7 +34,7 @@ export class SingleProductComponent implements OnInit {
       this.photos = this.item.photos;
       this.desc = this.item.desc;
 
-      console.log(this.photos);
+      // ////console.log(this.photos);
   }
 
   onClickMe():void

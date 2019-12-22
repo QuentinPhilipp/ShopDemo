@@ -46,7 +46,7 @@ export class CartHandlerService {
         this.cartProductList.push(newProd);
       }
     }
-    console.log("Get data : ",this.cartProductList);
+    //console.log("Get data : ",this.cartProductList);
   }
 
   updateCart(){

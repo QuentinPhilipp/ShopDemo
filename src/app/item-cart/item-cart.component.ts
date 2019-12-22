@@ -31,18 +31,19 @@ export class ItemCartComponent implements OnInit {
 
 
   onClickMe() {
-    console.log("Remove : ",this.Id);
+    // console.log("Remove : ",this.Id);
     this.cartService.removeItem(this.Id);
   }
 
 
   addOne() {
-    console.log("add one : ",this.Id);
+    // console.log("add one : ",this.Id);
     this.cartService.addOne(this.Id);
   }
 
   removeOne() {
-    console.log("Remove one : ",this.Id);
+    // console.log("Remove one : ",this.Id
+    
     this.cartService.removeOne(this.Id);
   }
 
